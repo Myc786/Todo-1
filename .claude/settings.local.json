@@ -7,7 +7,12 @@
       "Bash(powershell -ExecutionPolicy Bypass -File:*)",
       "Bash(python -m src.main:*)",
       "Bash(python test_todo.py:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(dir:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: implement Phase 2 foundational backend and frontend infrastructure\n\n- Configure Neon PostgreSQL connection strings and session factory in backend\n- Implement async database session dependency for FastAPI\n- Setup Better Auth environment variables and placeholder auth middleware\n- Create base SQLModel metadata with automated timestamp fields\n- Mark Phase 2 tasks as completed in tasks.md\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

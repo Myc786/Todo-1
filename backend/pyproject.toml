@@ -1,0 +1,21 @@
+[project]
+name = "todo-backend"
+version = "0.1.0"
+description = "FastAPI backend for Todo Web App"
+authors = [{ name = "Claude Code", email = "noreply@anthropic.com" }]
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlmodel",
+    "asyncpg",
+    "pydantic-settings",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "B"]
