@@ -1,0 +1,16 @@
+[project]
+name = "h2-todo"
+version = "0.1.0"
+description = "Phase I - In-Memory Python Console Todo Application"
+requires-python = ">=3.13"
+authors = [
+    {name = "H2 Project", email = "example@example.com"}
+]
+readme = "README.md"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

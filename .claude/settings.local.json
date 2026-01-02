@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File .specify/scripts/powershell/create-new-feature.ps1 -Number 1 -ShortName console-todo-app -Json \"Phase I - In-Memory Python Console-Based Todo Application\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File:*)",
+      "Bash(python -m src.main:*)",
+      "Bash(python test_todo.py:*)",
+      "Bash(git remote add:*)"
+    ]
+  }
+}
