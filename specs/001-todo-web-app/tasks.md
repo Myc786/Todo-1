@@ -48,11 +48,11 @@ description: "Task list for Phase II: Todo Full-Stack Web Application"
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Create User model in `backend/src/models/user.py`
-- [ ] T011 [US1] Implement signup/signin logic using Better Auth in `frontend/lib/auth.ts`
-- [ ] T012 [P] [US1] Create login and signup pages in `frontend/app/(auth)/`
-- [ ] T013 [US1] Implement Next.js middleware in `frontend/middleware.ts` for protected route redirection
-- [ ] T014 [US1] Add user registration success/error feedback toasts in `frontend/components/auth-feedback.tsx`
+- [x] T010 [P] [US1] Create User model in `backend/src/models/user.py`
+- [x] T011 [US1] Implement signup/signin logic using Better Auth in `frontend/lib/auth.ts`
+- [x] T012 [P] [US1] Create login and signup pages in `frontend/app/(auth)/`
+- [x] T013 [US1] Implement Next.js middleware in `frontend/middleware.ts` for protected route redirection
+- [x] T014 [US1] Add user registration success/error feedback toasts in `frontend/components/auth-feedback.tsx`
 
 **Checkpoint**: User Story 1 is functional. Users can persist identities in Neon PostgreSQL.
 
@@ -66,12 +66,12 @@ description: "Task list for Phase II: Todo Full-Stack Web Application"
 
 ### Implementation for User Story 2
 
-- [ ] T015 [P] [US2] Create Task model in `backend/src/models/task.py` with `owner_id` foreign key
-- [ ] T016 [US2] Implement `POST /api/tasks` and `GET /api/tasks` in `backend/src/api/tasks.py` with ownership filtering
-- [ ] T017 [P] [US2] Create `TaskList` and `TaskItem` components in `frontend/components/tasks/`
-- [ ] T018 [US2] Implement `useTasks` hook using SWR for optimistic UI in `frontend/lib/hooks/use-tasks.ts`
-- [ ] T019 [US2] Create `TaskForm` component in `frontend/components/tasks/task-form.tsx` for task creation
-- [ ] T020 [US2] Implement `DELETE /api/tasks/{id}` in `backend/src/api/tasks.py` with ownership check
+- [x] T015 [P] [US2] Create Task model in `backend/src/models/task.py` with `owner_id` foreign key
+- [x] T016 [US2] Implement `POST /api/tasks` and `GET /api/tasks` in `backend/src/api/tasks.py` with ownership filtering
+- [x] T017 [P] [US2] Create `TaskList` and `TaskItem` components in `frontend/components/tasks/`
+- [x] T018 [US2] Implement `useTasks` hook using SWR for optimistic UI in `frontend/lib/hooks/use-tasks.ts`
+- [x] T019 [US2] Create `TaskForm` component in `frontend/components/tasks/task-form.tsx` for task creation
+- [x] T020 [US2] Implement `DELETE /api/tasks/{id}` in `backend/src/api/tasks.py` with ownership check
 
 **Checkpoint**: User Story 2 is functional. Users can manage their private task lists.
 
@@ -85,10 +85,10 @@ description: "Task list for Phase II: Todo Full-Stack Web Application"
 
 ### Implementation for User Story 3
 
-- [ ] T021 [US3] Implement `PATCH /api/tasks/{id}` for toggling `is_completed` in `backend/src/api/tasks.py`
-- [ ] T022 [US3] Implement `PUT /api/tasks/{id}` for updating task title/description in `backend/src/api/tasks.py`
-- [ ] T023 [P] [US3] Add edit mode UI to `TaskItem` in `frontend/components/tasks/task-item.tsx`
-- [ ] T024 [US3] Integrate completion toggle with optimistic UI in `frontend/hooks/use-tasks.ts`
+- [x] T021 [US3] Implement `PATCH /api/tasks/{id}` for toggling `is_completed` in `backend/src/api/tasks.py`
+- [x] T022 [US3] Implement `PUT /api/tasks/{id}` for updating task title/description in `backend/src/api/tasks.py`
+- [x] T023 [P] [US3] Add edit mode UI to `TaskItem` in `frontend/components/tasks/task-item.tsx`
+- [x] T024 [US3] Integrate completion toggle with optimistic UI in `frontend/hooks/use-tasks.ts`
 
 **Checkpoint**: All core features from the console app are successfully migrated to the full-stack web app.
 
@@ -98,10 +98,10 @@ description: "Task list for Phase II: Todo Full-Stack Web Application"
 
 **Purpose**: Responsive design refinements and documentation.
 
-- [ ] T025 [P] Refine responsive layout for mobile in `frontend/app/globals.css` using Tailwind
-- [ ] T026 Add error boundary and loading states to `frontend/app/(dashboard)/layout.tsx`
-- [ ] T027 [P] Update `specs/001-todo-web-app/quickstart.md` with verified setup steps
-- [ ] T028 Perform final validation of all success criteria (SC-001 to SC-005)
+- [x] T025 [P] Refine responsive layout for mobile in `frontend/app/globals.css` using Tailwind
+- [x] T026 Add error boundary and loading states to `frontend/app/(dashboard)/layout.tsx`
+- [x] T027 [P] Update `specs/001-todo-web-app/quickstart.md` with verified setup steps
+- [x] T028 Perform final validation of all success criteria (SC-001 to SC-005)
 
 ---
 

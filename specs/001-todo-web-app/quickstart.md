@@ -26,20 +26,26 @@ npm run dev
 Web application will be available at `http://localhost:3000`.
 
 ### 4. Environment Variables
-Create a `.env` file in both `backend/` and `frontend/` roots:
+Create a `.env.local` file in `frontend/` and `.env` in `backend/`:
 
 **backend/.env**
 ```env
-DATABASE_URL=postgres://...
-AUTH_SECRET=your-secret
+DATABASE_URL=postgres://user:password@hostname/dbname?sslmode=require
+# Shared secret for extracting user info from session in middleware
+SHARED_AUTH_SECRET=your-secure-shared-secret
 ```
 
-**frontend/.env**
+**frontend/.env.local**
 ```env
+# Better Auth setup
+BETTER_AUTH_SECRET=your-secure-shared-secret
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+# Backend API proxy or direct URL
 NEXT_PUBLIC_API_URL=http://localhost:8000/api
-BETTER_AUTH_SECRET=your-secret
 ```
 
-## Running Tests
-- **Backend**: `pytest tests/`
-- **Frontend**: `npm test`
+## Running the App
+1. Start the FastAPI backend: `cd backend && python -m src.main`
+2. Start the Next.js frontend: `cd frontend && npm run dev`
+3. Open `http://localhost:3000` in your browser.
+

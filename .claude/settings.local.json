@@ -12,7 +12,26 @@
       "Bash(dir:*)",
       "Bash(cat:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: implement Phase 2 foundational backend and frontend infrastructure\n\n- Configure Neon PostgreSQL connection strings and session factory in backend\n- Implement async database session dependency for FastAPI\n- Setup Better Auth environment variables and placeholder auth middleware\n- Create base SQLModel metadata with automated timestamp fields\n- Mark Phase 2 tasks as completed in tasks.md\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: implement Phase 2 foundational backend and frontend infrastructure\n\n- Configure Neon PostgreSQL connection strings and session factory in backend\n- Implement async database session dependency for FastAPI\n- Setup Better Auth environment variables and placeholder auth middleware\n- Create base SQLModel metadata with automated timestamp fields\n- Mark Phase 2 tasks as completed in tasks.md\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(python -c \"content = open\\(''D:/H2/backend/src/api/tasks.py'', ''r''\\).read\\(\\); put_impl = ''\\\\n\\\\n@router.put\\(\"\"/{task_id}\"\", response_model=TaskRead\\)\\\\nasync def update_task\\(\\\\n    task_id: int,\\\\n    task_update: TaskUpdate,\\\\n    session: AsyncSession = Depends\\(get_session\\),\\\\n    current_user_id: str = Depends\\(get_current_user_id\\)\\\\n\\):\\\\n    statement = select\\(Task\\).where\\(Task.id == task_id\\)\\\\n    result = await session.execute\\(statement\\)\\\\n    db_task = result.scalar_one_or_none\\(\\)\\\\n\\\\n    if not db_task:\\\\n        raise HTTPException\\(status_code=404, detail=\"\"Task not found\"\"\\)\\\\n\\\\n    if db_task.owner_id != int\\(current_user_id\\):\\\\n        raise HTTPException\\(status_code=403, detail=\"\"Forbidden: Not the owner\"\"\\)\\\\n\\\\n    task_data = task_update.model_dump\\(exclude_unset=True\\)\\\\n    for key, value in task_data.items\\(\\):\\\\n        setattr\\(db_task, key, value\\)\\\\n\\\\n    session.add\\(db_task\\)\\\\n    await session.commit\\(\\)\\\\n    await session.refresh\\(db_task\\)\\\\n    return db_task\\\\n''; open\\(''D:/H2/backend/src/api/tasks.py'', ''w''\\).write\\(content + put_impl\\)\")",
+      "Bash(python -c:*)",
+      "Bash(python -m uvicorn:*)",
+      "Bash(npm run dev)",
+      "Bash(npm install)",
+      "Bash(pip install -e .)",
+      "Bash(del \"D:\\\\H2\\\\frontend\\\\components\\\\auth\\\\session-provider.tsx\")",
+      "Bash(npx tsc --noEmit)",
+      "Bash(curl -v http://localhost:8000/)",
+      "Bash(powershell -Command \"Get-ChildItem -Path ''D:\\\\H2\\\\frontend\\\\app'' -Recurse | Select-Object FullName\")",
+      "Bash(curl -v http://localhost:3003/)",
+      "Bash(powershell -Command \"Get-ChildItem -Path ''D:\\\\H2\\\\frontend\\\\app'' -Directory -Recurse | Select-Object FullName\")",
+      "Bash(curl -v http://localhost:3005/dashboard)",
+      "Bash(curl -s http://localhost:8000/openapi.json)",
+      "Bash(python -m json.tool)",
+      "Bash(curl -v -H \"x-user-id: 1\" http://localhost:8000/api/tasks)",
+      "Bash(curl -v -X POST -H \"Content-Type: application/json\" -H \"x-user-id: 1\" -d '{\"\"title\"\":\"\"Test task\"\",\"\"description\"\":\"\"Test description\"\"}' http://localhost:8000/api/tasks)",
+      "Bash(curl -v -X DELETE -H \"x-user-id: 1\" http://localhost:8000/api/tasks/2)",
+      "Bash(npm install framer-motion)"
     ]
   }
 }

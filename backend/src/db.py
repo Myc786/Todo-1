@@ -2,6 +2,8 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import sessionmaker
 from sqlmodel.ext.asyncio.session import AsyncSession
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from .models.task import Task
+from .models.user import User
 
 class Settings(BaseSettings):
     DATABASE_URL: str
@@ -29,7 +31,9 @@ async_session_maker = sessionmaker(
     expire_on_commit=False
 )
 
+from sqlmodel import SQLModel
+
 async def init_db():
-    # Tables will be created via migrations or manual metadata.create_all
-    # For now, we just ensure connectivity
-    pass
+    # Create all tables
+    async with engine.begin() as conn:
+        await conn.run_sync(SQLModel.metadata.create_all)

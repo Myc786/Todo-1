@@ -1,6 +1,6 @@
 from fastapi import Request, HTTPException, status
 from jose import jwt, JWTError
-from backend.src.db import settings
+from src.db import settings
 
 # Better Auth uses a session-based or token-based approach.
 # For simplicity in this foundational step, we expect a session token

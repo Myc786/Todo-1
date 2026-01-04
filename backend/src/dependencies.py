@@ -1,6 +1,6 @@
 from typing import AsyncGenerator
 from sqlmodel.ext.asyncio.session import AsyncSession
-from backend.src.db import async_session_maker
+from src.db import async_session_maker
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session_maker() as session:
