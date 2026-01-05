@@ -78,46 +78,49 @@ export const getSession = () => {
 };
 
 export const useSession = () => {
-  // For server-side rendering, return loading state
-  if (typeof window === 'undefined') {
-    return {
-      data: null,
-      status: 'unauthenticated',
-      isPending: true,
-    };
-  }
-
-  // On the client, get session data
-  const [user, setUser] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return JSON.parse(localStorage.getItem('mock-user') || 'null');
-    }
-    return null;
-  });
+  // Initialize state - will be null on server, and will update after hydration
+  const [user, setUser] = useState<any>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    const handleStorageChange = () => {
-      const updatedUser = JSON.parse(localStorage.getItem('mock-user') || 'null');
-      setUser(updatedUser);
-    };
+    // Only run on client
+    if (typeof window !== 'undefined') {
+      // Get initial user from localStorage
+      const storedUser = JSON.parse(localStorage.getItem('mock-user') || 'null');
+      setUser(storedUser);
 
-    // Listen for changes to localStorage from other tabs/windows
-    window.addEventListener('storage', handleStorageChange);
+      // Mark as hydrated after getting initial state
+      setIsHydrated(true);
 
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
+      const handleStorageChange = () => {
+        const updatedUser = JSON.parse(localStorage.getItem('mock-user') || 'null');
+        setUser(updatedUser);
+      };
+
+      // Listen for changes to localStorage from other tabs/windows
+      window.addEventListener('storage', handleStorageChange);
+
+      // Clean up the event listener
+      return () => {
+        window.removeEventListener('storage', handleStorageChange);
+      };
+    }
   }, []);
+
+  // Determine status based on user and hydration state
+  const status = !isHydrated ? 'unauthenticated' : user ? 'authenticated' : 'unauthenticated';
+  const isPending = !isHydrated;
 
   return {
     data: user ? { user } : null,
-    status: user ? 'authenticated' : 'unauthenticated',
-    isPending: false,
+    status,
+    isPending,
     // Add a manual refresh function for same-tab updates
     refresh: () => {
-      const updatedUser = JSON.parse(localStorage.getItem('mock-user') || 'null');
-      setUser(updatedUser);
+      if (typeof window !== 'undefined') {
+        const updatedUser = JSON.parse(localStorage.getItem('mock-user') || 'null');
+        setUser(updatedUser);
+      }
     }
   };
 };
